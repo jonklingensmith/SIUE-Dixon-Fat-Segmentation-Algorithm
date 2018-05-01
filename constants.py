@@ -52,3 +52,4 @@ saveMat = True
 # Constant variables that are set in another function
 pathDir = None
 nrrdHeaderDict = None
+abdominalScanFilename = None

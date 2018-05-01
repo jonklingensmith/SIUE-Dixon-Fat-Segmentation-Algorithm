@@ -272,16 +272,16 @@ def runSegmentation(image, config):
     # Create empty arrays that will contain slice-by-slice intermediate images when processing the images
     # These are used to print the entire 3D volume out for debugging afterwards
     fatImage, header = nrrd.read(getDebugPath(
-        "C:/Users/Clint/PycharmProjects/SIUE-Dixon-Fat-Segmentation-Algorithm/MRI_Data_Nrrd_Output/newOut.nrrd"))
+        "C:/Users/jokling/Documents/Projects/SIUE-Dixon-Fat-Segmentation-Algorithm/MRI_Data_Nrrd_Output/newOut.nrrd"))
 
-    if os.path.exists(getDebugPath('C:/Users/Clint/PycharmProjects/SIUE-Dixon-Fat-Segmentation-Algorithm/MRI_Data_Nrrd_Output/fatImageBC.nrrd')):
+    if os.path.exists(getDebugPath('C:/Users/jokling/Documents/Projects/SIUE-Dixon-Fat-Segmentation-Algorithm/MRI_Data_Nrrd_Output/fatImageBC.nrrd')):
         fatImage, header = nrrd.read(getDebugPath('fatImageBC.nrrd'))
     else:
         fatImage = correctBias(fatImage.astype(np.float32), shrinkFactor=constants.shrinkFactor,
                                prefix='fatImageBiasCorrection')
     #
     #         # If bias correction is performed, saved images to speed up algorithm in future runs
-    nrrd.write(getDebugPath('C:/Users/Clint/PycharmProjects/SIUE-Dixon-Fat-Segmentation-Algorithm/MRI_Data_Nrrd_Output/fatImageBC.nrrd'), fatImage, constants.nrrdHeaderDict)
+    nrrd.write(getDebugPath('C:/Users/jokling/Documents/Projects/SIUE-Dixon-Fat-Segmentation-Algorithm/MRI_Data_Nrrd_Output/MRI_Data_Nrrd_Output/fatImageBC.nrrd'), fatImage, constants.nrrdHeaderDict)
 
 
     fatImageMasks = np.zeros(fatImage.shape, bool)
