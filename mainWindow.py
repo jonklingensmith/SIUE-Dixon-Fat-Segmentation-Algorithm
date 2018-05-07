@@ -135,14 +135,14 @@ class MainWindow(QMainWindow, mainWindow_ui.Ui_MainWindow):
         dataPath = selectedIndices[0].data()
 
         # set output filename for NRRD of the image volume extracted from the DICOM study/series
-        constants.abdominalScanFilename = "abdominalScan.nrrd"
+        constants.abdominalScanFilename = dataPath + "/abdominalScan.nrrd"
 
         # Load data from path
         image, config = self.loadFile(dataPath)
         if image is None:
             return
 
-        self.configureWindow = ConfigureWindow(image, config, dataPath, parent=self)
+        self.configureWindow = ConfigureWindow(image, image, config, dataPath, parent=self)
         self.configureWindow.show()
 
     def loadFile(self, dataPath):
